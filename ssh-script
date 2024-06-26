@@ -1,0 +1,5 @@
+ssh-keygen -t rsa -b 2048
+
+sshpass -p "vagrant" ssh-copy-id -o StrictHostKeyChecking=no vagrant@192.168.51.10
+
+sshpass -p "vagrant" ssh-copy-id -o StrictHostKeyChecking=no vagrant@192.168.50.10
