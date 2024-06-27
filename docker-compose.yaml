@@ -7,16 +7,22 @@ services:
       - MYSQL_ROOT_PASSWORD=devops
     volumes:
       - "./app/db/absence.sql:/docker-entrypoint-initdb.d/absence.sql" # this is how we persist a sql db even when container stops
+
   www:
     image: php:apache
+    depends_on:
+      - db
     volumes:
       - "./app:/var/www/html" # sync the current dir on local machine to the dir of container
     ports:
       - 80:80
       - 443:443 # for future ssl traffic
     command: /bin/bash -c "docker-php-ext-install mysqli && apache2-foreground"
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    depends_on:
+      - db
     ports:
       - 8001:80
     environment:
