@@ -45,7 +45,7 @@
 
     - name: Synchronize application files
       synchronize:
-        src: /home/vagrant/devopsfinal/
+        src: /home/vagrant/devops/
         dest: /tmp/build
         delete: yes
         checksum: yes
@@ -54,7 +54,7 @@
 
     - name: Ensure docker-compose.yaml is present
       copy:
-        src: /home/vagrant/devopsfinal/docker-compose.yaml
+        src: /home/vagrant/devops/docker-compose.yaml
         dest: /tmp/build/docker-compose.yaml
 
     - name: Run Docker Compose
