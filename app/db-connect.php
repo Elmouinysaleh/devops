@@ -1,6 +1,6 @@
 <?php
 class Database {
-    private $host = 'localhost';
+    private $host = 'db'; // Utilisez 'db' car c'est le nom du service dans docker-compose.yaml
     private $db_name = 'absence';
     private $username = 'root';
     private $password = 'devops';
@@ -9,6 +9,7 @@ class Database {
     public function getConnection() {
         $this->conn = null;
         try {
+            // Essayez de vous connecter à la base de données MySQL
             $this->conn = new mysqli($this->host, $this->username, $this->password, $this->db_name);
             if ($this->conn->connect_error) {
                 throw new Exception("Connection failed: " . $this->conn->connect_error);
@@ -20,4 +21,3 @@ class Database {
     }
 }
 ?>
-~
