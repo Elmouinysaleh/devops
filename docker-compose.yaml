@@ -8,7 +8,7 @@ services:
       - MYSQL_PASSWORD=devops # this should live in a env var
       - MYSQL_ALLOW_EMPTY_PASSWORD=1 # equivalent to True
     volumes:
-      - "./app/db:/docker-entrypoint-initdb.d" # this is how we persist a sql db even when container stops
+      - "./app/db/absence.sql:/docker-entrypoint-initdb.d/absence.sql" # this is how we persist a sql db even when container stops
   www:
     image: php:apache
     volumes:
