@@ -2,7 +2,7 @@
 class Database {
     private $host = 'localhost';
     private $db_name = 'absence';
-    private $username = 'devops';
+    private $username = 'root';
     private $password = 'devops';
     public $conn;
 
